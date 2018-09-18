@@ -10,7 +10,9 @@ class App extends Component {
 
   state = {}
 
-  constructor() {
+  constructor(props) {
+    super(props);
+    
     this.getTemperature = this.getTemperature.bind(this)
   }
 
