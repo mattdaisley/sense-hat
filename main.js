@@ -5,12 +5,13 @@ let win
 
 app.on('ready', () => {
   win = new BrowserWindow({ width: 800, height: 600 })
-  // win.loadFile(`client/build/index.html`)
-  win.loadURL('http://localhost:3000')
 
   // Open the DevTools.
   if (process.env.DEV === 'true') {
+    win.loadURL('http://localhost:3000')
     win.webContents.openDevTools()
+  } else {
+    win.loadFile(`client/build/index.html`)
   }
 
   win.setFullScreen(true);
