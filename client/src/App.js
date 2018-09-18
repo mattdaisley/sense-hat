@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="app">
         <p className="tempResult">
-          {this.state.temperature}
+          {this.state.temperature}<sup>&deg;</sup>
         </p>
       </div>
     );

@@ -13,22 +13,31 @@ function runScript(scriptName, args) {
       args: args
     }
 
-    var shell = new PythonShell(scriptName, options, function (err, results) {
-      if ( err ) {
-        reject(err);
-        return;
-      }
+    PythonShell.run(scriptName, options, function (err, results) {
+        if (err) {
+            reject(err);
+            return;
+        }
+        
+        resolve(results.result);
     });
 
-    shell.on('message', function (message) {
-      resolve(message.result);
-    });
+    // var shell = new PythonShell(scriptName, options, function (err, results) {
+    //   if ( err ) {
+    //     reject(err);
+    //     return;
+    //   }
+    // });
 
-    shell.end(function (err) {
-      if ( err ) {
-        throw err;
-      }
-    });
+    // shell.on('message', function (message) {
+    //   resolve(message.result);
+    // });
+
+    // shell.end(function (err) {
+    //   if ( err ) {
+    //     throw err;
+    //   }
+    // });
 
   });
 }
