@@ -13,7 +13,8 @@ class App extends Component {
   componentDidMount() {
     ipcRenderer.on('getTemperatureResponse', (event, arg) => {
       console.log(arg) // prints "pong"
-      this.setState({result: arg})
+      const result = JSON.parse(arg);
+      this.setState({temperature: result.temperature})
       //document.getElementById('result').innerHTML = arg
     })
     ipcRenderer.send('getTemperature')
@@ -21,13 +22,9 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          {this.state.result}
+      <div className="app">
+        <p className="tempResult">
+          {this.state.temperature}
         </p>
       </div>
     );
