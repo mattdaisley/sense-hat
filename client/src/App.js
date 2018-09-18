@@ -17,10 +17,10 @@ class App extends Component {
   componentDidMount() {
     this.getTemperature();
     this.getTemperatureInterval = setInterval(this.getTemperature, 5000);
-    
+
     ipcRenderer.on('getTemperatureResponse', (event, arg) => {
       const result = JSON.parse(arg);
-      console.log(result);
+      // console.log(result);
       this.setState({temperature: Math.round(result * 100) / 100})
       //document.getElementById('result').innerHTML = arg
     })
