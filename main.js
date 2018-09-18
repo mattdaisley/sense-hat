@@ -20,10 +20,10 @@ ipcMain.on('getTemperature', (event) => {
     event.sender.send('getTemperatureResponse', JSON.stringify({temperature: 88}))
     return
   }
-  console.log('getting temperature')
+  // console.log('getting temperature')
   senseHat.getTemperature()
     .then(( result ) => {
-      console.log('sending getTemperatureResponse', JSON.stringify(result))
+      // console.log('sending getTemperatureResponse', JSON.stringify(result))
       event.sender.send('getTemperatureResponse', JSON.stringify(result))
     })
     .catch(( err ) => console.log(err));
