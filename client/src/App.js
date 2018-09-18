@@ -38,9 +38,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <p className="tempResult">
+        <div className="tempResult">
           {this.state.temperature}<sup>&deg;</sup>
-        </p>
+        </div>
       </div>
     );
   }
