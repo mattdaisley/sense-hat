@@ -1,16 +1,16 @@
-var 
-    PythonShell          = require('python-shell'),
-    path                 = require('path'),
+let {PythonShell} = require('python-shell')
+
+var path                 = require('path'),
     senseHat;
 
-var rootDir = path.resolve(__dirname, '../sense-hat');
+var rootDir = path.resolve(__dirname);
 
 function runScript(scriptName, args) {
   return new Promise(function (resolve, reject) {
     var options = { 
       mode: 'json', 
       pythonPath: '/usr/bin/python',
-      scriptPath: rootDir + '/sense',
+      scriptPath: rootDir,
       pythonOptions: ['-u'],
       args: args
     }
