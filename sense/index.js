@@ -22,7 +22,7 @@ function runScript(scriptName, args) {
             return;
         }
         console.log(results);
-        resolve(results.result);
+        resolve(results[0].result);
     });
 
     // var shell = new PythonShell(scriptName, options, function (err, results) {
