@@ -6,6 +6,7 @@ var path                 = require('path'),
 var rootDir = path.resolve(__dirname);
 
 function runScript(scriptName, args) {
+    console.log('running script')
   return new Promise(function (resolve, reject) {
     var options = { 
       mode: 'json', 
@@ -20,7 +21,7 @@ function runScript(scriptName, args) {
             reject(err);
             return;
         }
-        
+        console.log(results);
         resolve(results.result);
     });
 
