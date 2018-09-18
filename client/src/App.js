@@ -10,6 +10,10 @@ class App extends Component {
 
   state = {}
 
+  constructor() {
+    this.getTemperature = this.getTemperature.bind(this)
+  }
+
   componentDidMount() {
     this.getTemperatureInterval = setInterval(this.getTemperature, 1000);
   }
