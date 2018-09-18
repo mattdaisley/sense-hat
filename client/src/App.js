@@ -11,6 +11,14 @@ class App extends Component {
   state = {}
 
   componentDidMount() {
+    this.getTemperatureInterval = setInterval(this.getTemperature, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.getTemperatureInterval);
+  }
+
+  getTemperature() {
     ipcRenderer.on('getTemperatureResponse', (event, arg) => {
       const result = JSON.parse(arg);
       console.log(result);
