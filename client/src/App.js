@@ -12,11 +12,12 @@ class App extends Component {
 
   componentDidMount() {
     ipcRenderer.on('getTemperatureResponse', (event, arg) => {
-      console.log(arg) // prints "pong"
       const result = JSON.parse(arg);
+      console.log(result);
       this.setState({temperature: result.temperature})
       //document.getElementById('result').innerHTML = arg
     })
+    console.log('getting the temperature')
     ipcRenderer.send('getTemperature')
   }
   
