@@ -5,7 +5,8 @@ let win
 
 app.on('ready', () => {
   win = new BrowserWindow({ width: 800, height: 600 })
-  win.loadFile(`client/build/index.html`)
+  // win.loadFile(`client/build/index.html`)
+  win.loadURL('http://localhost:3000')
 
   // Open the DevTools.
   if (process.env.DEV === 'true') {
@@ -17,7 +18,7 @@ app.on('ready', () => {
 
 ipcMain.on('getTemperature', (event) => {
   if (process.env.DEV === 'true') {
-    event.sender.send('getTemperatureResponse', JSON.stringify({temperature: 88}))
+    event.sender.send('getTemperatureResponse', Math.round(Math.random() * 100) / 100 + 70)
     return
   }
   // console.log('getting temperature')
