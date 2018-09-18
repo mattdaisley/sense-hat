@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getTemperature();
     this.getTemperatureInterval = setInterval(this.getTemperature, 5000);
   }
 
