@@ -21,13 +21,11 @@ ipcMain.on('getTemperature', (event) => {
     return
   }
   console.log('getting temperature')
-  senseHat.getTemperature(
-    {}, 
-    ( result ) => {
+  senseHat.getTemperature()
+    .then(( result ) => {
       console.log('sending getTemperatureResponse', JSON.stringify(result))
       event.sender.send('getTemperatureResponse', JSON.stringify(result))
-    }, 
-    ( err ) => console.log(err) 
-  );
+    })
+    .catch(( err ) => console.log(err));
 
 })
