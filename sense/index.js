@@ -9,7 +9,9 @@ function runScript(scriptName, args) {
   return new Promise(function (resolve, reject) {
     var options = { 
       mode: 'json', 
+      pythonPath: '/usr/bin/python',
       scriptPath: rootDir + '/sense',
+      pythonOptions: ['-u'],
       args: args
     }
 
