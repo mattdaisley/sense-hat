@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Hello World!</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    <div id="result"></div>
+
+    <script>
+      const {ipcRenderer} = require('electron')
+
+      console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+      
+      ipcRenderer.on('asynchronous-reply', (event, arg) => {
+        console.log(arg) // prints "pong"
+        document.getElementById('result').innerHTML = arg
+      })
+      ipcRenderer.send('asynchronous-message', 'ping')
+      
+      const updateOnlineStatus = () => {
+        ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
+      }
+    
+      window.addEventListener('online',  updateOnlineStatus)
+      window.addEventListener('offline',  updateOnlineStatus)
+    
+      updateOnlineStatus()
+    </script>
+  </body>
+</html>
