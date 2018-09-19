@@ -17,7 +17,6 @@ class TemperatureBar extends Component {
   }
 
   getNotchColor(factor) {
-    console.log(this.props.temperature, this.state.min + factor)
     if (this.props.temperature < this.state.min + factor - 1) return [255, 255, 255, .3]
 
     var result = this.state.color1.slice();
