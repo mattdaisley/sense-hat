@@ -19,7 +19,7 @@ app.on('ready', () => {
 
 ipcMain.on('getTemperature', (event) => {
   if (process.env.DEV === 'true') {
-    event.sender.send('getTemperatureResponse', Math.round(Math.random() * 100) / 100 + 70)
+    event.sender.send('getTemperatureResponse', Math.round(Math.random() * 10) + 70)
     return
   }
   // console.log('getting temperature')

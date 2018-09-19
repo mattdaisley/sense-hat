@@ -1,12 +1,21 @@
 .app {
   width: 100%;
   height: 100%;
-  flex-direction: row;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(135deg, rgba(9, 177, 219, .3), rgba(195, 1, 20, .2));
 }
 
 .tempResult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.degrees {
   text-align: center;
-  font-size: 48px;
+  font-size: 64px;
   color: #fff;
+  padding: 32px;
 }

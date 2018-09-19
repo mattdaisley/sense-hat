@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import TemperatureBar from './components/TemperatureBar/TemperatureBar';
 
 const { ipcRenderer } = window.require('electron');
 // const ipcRenderer  = electron.ipcRenderer
@@ -39,7 +40,8 @@ class App extends Component {
     return (
       <div className="app">
         <div className="tempResult">
-          {this.state.temperature}<sup>&deg;</sup>
+          <div className="degrees">{this.state.temperature}<sup>&deg;</sup></div>
+          <TemperatureBar temperature={this.state.temperature} />
         </div>
       </div>
     );
